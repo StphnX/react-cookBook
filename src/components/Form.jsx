@@ -14,17 +14,33 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
     setSelectedGroup(value);
   };
 
-  let HandleOtherChange = (e) => {
+  let handleName = (e) => {
     let value = e.target.value;
     setName(value);
-    setImg(value);
-    setDescription(value);
+
     const newIngredients = value
       .split(',')
       .map((ingredient) => ingredient.trim());
     setIngredients(newIngredients);
   };
-  //   console.log(recipe);
+
+  let handleImg = (e) => {
+    let value = e.target.value;
+    setImg(value);
+  };
+
+  let handleDescription = (e) => {
+    let value = e.target.value;
+    setDescription(value);
+  };
+
+  let handleIngredients = (e) => {
+    let value = e.target.value;
+    const newIngredients = value
+      .split(',')
+      .map((ingredient) => ingredient.trim());
+    setIngredients(newIngredients);
+  };
 
   let handleSubmit = (e) => {
     e.preventDefault();
@@ -38,16 +54,18 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
 
     setNewRecipe(newItem);
 
+    console.log(newItem);
     setName('');
     setSelectedGroup('');
     setImg('');
     setDescription('');
     setIngredients([]);
+    document.getElementById('newRecipeForm').reset();
   };
 
   return (
     <div className="form">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="newRecipeForm">
         <TextField
           className="nameField"
           required
@@ -55,7 +73,7 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
           label="Name"
           placeholder="Item name"
           helperText="Give the name to recipe"
-          onChange={HandleOtherChange}
+          onChange={handleName}
         />
 
         <TextField
@@ -81,7 +99,7 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
           label="Img"
           placeholder="http://..."
           helperText="Add link to img"
-          onChange={HandleOtherChange}
+          onChange={handleImg}
         />
         <TextField
           className="descriptionField"
@@ -90,7 +108,7 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
           label="Description"
           variant="outlined"
           helperText="Add description to recipe"
-          onChange={HandleOtherChange}
+          onChange={handleDescription}
         />
         <TextField
           className="ingredientsField"
@@ -99,7 +117,7 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
           label="Ingredients"
           variant="outlined"
           helperText="Devide by comma"
-          onChange={HandleOtherChange}
+          onChange={handleIngredients}
         />
         <button>Add recipe</button>
       </form>

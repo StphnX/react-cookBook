@@ -1,0 +1,45 @@
+body {
+
+    justify-content: center;
+    background-image: url("BackgroundIMG.jpg");
+    background-position: center;
+    background-size: auto;
+
+}
+
+.menu {
+    margin-right: 15%;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15%;
+
+}
+
+.home-title {
+
+    text-align: center;
+
+    font-size: 3vw;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+
+.home-message {
+    width: 65%;
+    margin-top: 3%;
+    font-size: 1.2vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    justify-self: center;
+    padding: 0 100px;
+}
+
+img {
+    margin-top: 30px;
+    width: 800px;
+    height: 400px;
+}

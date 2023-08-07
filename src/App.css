@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}

@@ -14,6 +14,8 @@ function App() {
   const [recipe, setRecipe] = useState([]);
   const { getCookbook } = Contentful();
   const [loading, setLoading] = useState(true);
+  const [newRecipe, setNewRecipe] = useState({});
+  console.log(newRecipe);
 
   useEffect(() => {
     getCookbook()
@@ -60,7 +62,13 @@ function App() {
           ))}
           <Route
             path="add-item"
-            element={<Form recipe={recipe} loading={loading} />}
+            element={
+              <Form
+                recipe={recipe}
+                loading={loading}
+                setNewRecipe={setNewRecipe}
+              />
+            }
           />
           <Route path="*" element={<NotFound />} />
         </Route>

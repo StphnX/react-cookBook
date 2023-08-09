@@ -7,30 +7,28 @@ body {
 
 }
 
-.menu {
-    margin-right: 15%;
-}
 
 .home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 15%;
+    padding: 0 15% 0 0;
+    width: 100%;
 
 }
 
 .home-title {
 
     text-align: center;
-
+    padding: 0 50px;
     font-size: 3vw;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
 .home-message {
-    width: 65%;
     margin-top: 3%;
     font-size: 1.2vw;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -40,6 +38,21 @@ body {
 
 img {
     margin-top: 30px;
-    width: 800px;
-    height: 400px;
+    max-width: 900px;
+    max-height: 400px;
+
+}
+
+@media only screen and (max-width: 940px) {
+    img {
+        width: 500px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .menu {
+        width: 290px;
+
+    }
 }

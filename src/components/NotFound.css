@@ -7,15 +7,14 @@ body {
 
 }
 
-.menu {
-    margin-right: 15%;
-}
+
 
 .title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 15%;
 
 }
 
@@ -35,4 +34,28 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     justify-self: center;
     padding: 0 100px;
+}
+
+@media only screen and (max-width: 940px) {
+    .title-message {
+        width: 200px;
+        font-size: 30px;
+
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .message {
+        width: 350px;
+        font-size: 10px;
+
+    }
+}
+
+
+@media only screen and (max-width: 940px) {
+    .title-container {
+
+        padding: 0 15% 0 0;
+    }
 }

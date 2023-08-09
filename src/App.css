@@ -1,9 +1,7 @@
-
-
-
 .app {
   display: flex;
 }
+
 nav {
   display: flex;
   flex-direction: column;
@@ -13,6 +11,21 @@ nav {
 main {
   display: flex;
   flex-direction: column;
+}
+
+
+@media only screen and (max-width: 940px) {
+  nav {
+    width: 200px;
+
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  main {
+    width: 200px;
+
+  }
 }
 
 form {
@@ -27,3 +40,4 @@ form {
   justify-content: center;
   align-items: center;
 }
+

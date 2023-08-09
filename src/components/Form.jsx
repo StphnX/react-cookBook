@@ -45,11 +45,23 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
   let handleSubmit = (e) => {
     e.preventDefault();
     let newItem = {
-      description: description,
-      group: selectedGroup,
-      img: img,
-      ingredients: ingredients,
-      name: name,
+      fields: {
+        name: {
+          'en-US': name,
+        },
+        group: {
+          'en-US': selectedGroup,
+        },
+        img: {
+          'en-US': img,
+        },
+        description: {
+          'en-US': description,
+        },
+        ingredients: {
+          'en-US': ingredients,
+        },
+      },
     };
 
     setNewRecipe(newItem);

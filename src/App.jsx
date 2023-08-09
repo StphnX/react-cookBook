@@ -48,9 +48,8 @@ function App() {
   useEffect(() => {
     const createNewEntry = async (newEntryData) => {
       try {
-        const accessToken = 'CFPAT--CMMMjYb7BYf6DFkqB_IUKBsP7am2McwVxodOt-E-Fk';
+        const accessToken = 'CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc';
         const spaceId = 'fvwgdnm4oux1';
-        const contentTypeId = 'cookbook';
 
         const url = `https://api.contentful.com/spaces/${spaceId}/environments/master/entries`;
 
@@ -58,11 +57,11 @@ function App() {
           url,
           {
             fields: newEntryData,
-            contentTypeId: contentTypeId,
+            contentTypeId: 'cookbook',
           },
           {
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/vnd.contentful.management.v1+json',
               Authorization: `Bearer ${accessToken}`,
             },
           }
@@ -71,6 +70,7 @@ function App() {
         return response.data;
       } catch (error) {
         console.error('Error creating new entry:', error.message);
+        console.log(error);
         return null;
       }
     };

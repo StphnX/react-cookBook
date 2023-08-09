@@ -37,3 +37,12 @@ p {
 img {
     filter: drop-shadow(0 0 0.75rem black);
 }
+
+@media only screen and (min-width: 700px) {
+    img {
+        min-width: 500px;
+        min-height: 300px;
+
+
+    }
+}

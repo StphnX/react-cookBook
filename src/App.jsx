@@ -15,7 +15,7 @@ function App() {
   const [recipe, setRecipe] = useState([]);
   const { getCookbook } = Contentful();
   const [loading, setLoading] = useState(true);
-  const [newRecipe, setNewRecipe] = useState({});
+  const [newRecipe, setNewRecipe] = useState();
 
   useEffect(() => {
     getCookbook()
@@ -46,44 +46,46 @@ function App() {
   const groupedRecipes = groupRecipesByGroup(recipe);
 
   useEffect(() => {
-    const createNewEntry = async (newEntryData) => {
-      try {
-        const accessToken = 'CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc';
+    if (newRecipe) {
+      const createNewEntry = async (newEntryData) => {
+        try {
+          const url = `https://api.contentful.com/spaces/fvwgdnm4oux1/environments/master/entries`;
 
-        const url = `https://api.contentful.com/spaces/fvwgdnm4oux1/environments/master/entries`;
-
-        const response = await axios.post(
-          url,
-          {
-            fields: newEntryData,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/vnd.contentful.management.v1+json',
-              Authorization: `Bearer CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc`,
-              'X-Contentful-Content-Type': 'cookbook',
+          const response = await axios.post(
+            url,
+            {
+              fields: newEntryData,
             },
-          }
-        );
+            {
+              headers: {
+                'Content-Type': 'application/vnd.contentful.management.v1+json',
+                Authorization: `Bearer CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc`,
+                'X-Contentful-Content-Type': 'cookbook',
+              },
+            }
+          );
 
-        return response.data;
-      } catch (error) {
-        console.error('Error creating new entry:', error.message);
+          return response.data;
+        } catch (error) {
+          console.error('Error creating new entry:', error.message);
+          console.log(error);
+          return null;
+        }
+      };
 
-        return null;
-      }
-    };
-
-    // Usage example
-    const newEntryData = JSON.stringify(newRecipe);
-    console.log(newEntryData);
-    createNewEntry(newEntryData).then((createdEntry) => {
-      if (createdEntry) {
-        console.log('New entry created:', createdEntry);
-      } else {
-        console.log('Failed to create new entry.');
-      }
-    });
+      // Usage example
+      const newEntryData = newRecipe;
+      console.log(newEntryData);
+      createNewEntry(newEntryData).then((createdEntry) => {
+        if (createdEntry) {
+          console.log('New entry created:', createdEntry);
+        } else {
+          console.log('Failed to create new entry.');
+        }
+      });
+    } else {
+      console.log('nothing sent');
+    }
   }, [newRecipe]);
 
   return (

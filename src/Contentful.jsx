@@ -13,12 +13,12 @@ const Contentful = () => {
         content_type: 'cookbook',
         select: 'fields',
       });
-
+      console.log(entries);
       const saniEntries = entries.items.map((item) => {
         const name = item.fields.name;
         const description = item.fields.description;
         const ingredients = item.fields.ingredients;
-        const img = item.fields.img.fields.file.url;
+        const img = item.fields.image;
 
         const id = item.sys.id;
         const group = item.fields.group;

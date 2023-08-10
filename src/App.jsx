@@ -49,20 +49,19 @@ function App() {
     const createNewEntry = async (newEntryData) => {
       try {
         const accessToken = 'CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc';
-        const spaceId = 'fvwgdnm4oux1';
 
-        const url = `https://api.contentful.com/spaces/${spaceId}/environments/master/entries`;
+        const url = `https://api.contentful.com/spaces/fvwgdnm4oux1/environments/master/entries`;
 
         const response = await axios.post(
           url,
           {
             fields: newEntryData,
-            contentTypeId: 'cookbook',
           },
           {
             headers: {
               'Content-Type': 'application/vnd.contentful.management.v1+json',
-              Authorization: `Bearer ${accessToken}`,
+              Authorization: `Bearer CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc`,
+              'X-Contentful-Content-Type': 'cookbook',
             },
           }
         );
@@ -70,14 +69,14 @@ function App() {
         return response.data;
       } catch (error) {
         console.error('Error creating new entry:', error.message);
-        console.log(error);
+
         return null;
       }
     };
 
     // Usage example
-    const newEntryData = newRecipe;
-    console.log(newRecipe);
+    const newEntryData = JSON.stringify(newRecipe);
+    console.log(newEntryData);
     createNewEntry(newEntryData).then((createdEntry) => {
       if (createdEntry) {
         console.log('New entry created:', createdEntry);

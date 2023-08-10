@@ -8,7 +8,7 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
   const [img, setImg] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState([]);
-
+  console.log(img);
   let HandleChange = (e) => {
     let value = e.target.value;
     setSelectedGroup(value);
@@ -52,7 +52,7 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
         group: {
           'en-US': selectedGroup,
         },
-        img: {
+        image: {
           'en-US': img,
         },
         description: {
@@ -66,7 +66,6 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
 
     setNewRecipe(newItem);
 
-    console.log(newItem);
     setName('');
     setSelectedGroup('');
     setImg('');

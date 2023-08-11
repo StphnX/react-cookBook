@@ -9,7 +9,7 @@ const Recipe = ({ recipe, loading }) => {
   });
 
   return (
-    <div>
+    <div className="recipe-container">
       {loading ? (
         <p>Loading...</p>
       ) : recipe?.length > 0 && filteredItem ? (
@@ -21,8 +21,11 @@ const Recipe = ({ recipe, loading }) => {
             alt={filteredItem[0].name}
           />
           <h3 className="Description">{filteredItem[0].description}</h3>
+          <h3 className="ingredients-heading">Ingredients:</h3>
           {filteredItem[0].ingredients.map((item, index) => (
-            <p key={index}>{item}</p>
+            <p className="recipe-ingredient" key={index}>
+              {item}
+            </p>
           ))}
         </>
       ) : (

@@ -1,6 +1,3 @@
-.app {
-  display: flex;
-}
 
 nav {
   display: flex;
@@ -13,31 +10,16 @@ main {
   flex-direction: column;
 }
 
-
-@media only screen and (max-width: 940px) {
-  nav {
-    width: 200px;
-
-  }
-}
-
-@media only screen and (max-width: 940px) {
-  main {
-    width: 200px;
-
-  }
-}
-
 form {
   display: flex;
   flex-direction: column;
+  margin-top: 4em;
 }
 
 .form {
   width: 100%;
-  margin-top: 60px;
+  /* margin-top: 60px; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-

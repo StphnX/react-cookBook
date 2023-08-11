@@ -1,32 +1,24 @@
 body {
-
     justify-content: center;
     background-image: url("BackgroundIMG.jpg");
     background-position: center;
     background-size: auto;
-
 }
-
 
 .home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin-top: 15%;
-    padding: 0 15% 0 0;
     width: 100%;
-
 }
 
 .home-title {
-
     text-align: center;
     padding: 0 50px;
-    font-size: 3vw;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 2em;
 }
-
 
 .home-message {
     margin-top: 3%;
@@ -39,20 +31,12 @@ body {
 img {
     margin-top: 30px;
     max-width: 900px;
-    max-height: 400px;
-
+    height: auto;
 }
 
 @media only screen and (max-width: 940px) {
     img {
-        width: 500px;
-        height: 200px;
-    }
-}
-
-@media only screen and (max-width: 940px) {
-    .menu {
-        width: 290px;
-
+        width: 300px;
+        height: auto;
     }
 }

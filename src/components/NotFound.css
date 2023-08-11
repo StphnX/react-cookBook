@@ -1,13 +1,9 @@
 body {
-
     justify-content: center;
     background-image: url("BackgroundIMG.jpg");
     background-position: center;
     background-size: auto;
-
 }
-
-
 
 .title-container {
     display: flex;
@@ -15,17 +11,14 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 15%;
-
 }
 
 .title-message {
-
     text-align: center;
     margin-top: 30%;
     font-size: 3vw;
     font-family: Georgia, 'Times New Roman', Times, serif
 }
-
 
 .message {
     width: 65%;
@@ -40,7 +33,6 @@ body {
     .title-message {
         width: 200px;
         font-size: 30px;
-
     }
 }
 
@@ -48,14 +40,11 @@ body {
     .message {
         width: 350px;
         font-size: 10px;
-
     }
 }
 
-
 @media only screen and (max-width: 940px) {
     .title-container {
-
         padding: 0 15% 0 0;
     }
 }

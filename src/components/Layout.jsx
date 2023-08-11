@@ -6,7 +6,7 @@ const Layout = ({ loading, recipes }) => {
   return (
     <>
       <Menu recipes={recipes} loading={loading} />
-      <Outlet />
+      <Outlet/>
     </>
   );
 };

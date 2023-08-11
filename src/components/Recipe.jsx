@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import "./Recipe.css"
+import './Recipe.css';
 
 const Recipe = ({ recipe, loading }) => {
   const { recipeId } = useParams();
@@ -14,13 +14,13 @@ const Recipe = ({ recipe, loading }) => {
         <p>Loading...</p>
       ) : recipe?.length > 0 && filteredItem ? (
         <>
-          <h1 className='Title-Recipe'>{filteredItem[0].name}</h1>
+          <h1 className="Title-Recipe">{filteredItem[0].name}</h1>
           <img
             className="pic"
             src={filteredItem[0].img}
             alt={filteredItem[0].name}
           />
-          <h3 className='Description'>{filteredItem[0].description}</h3>
+          <h3 className="Description">{filteredItem[0].description}</h3>
           {filteredItem[0].ingredients.map((item, index) => (
             <p key={index}>{item}</p>
           ))}

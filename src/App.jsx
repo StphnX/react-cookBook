@@ -79,6 +79,42 @@ function App() {
       createNewEntry(newEntryData).then((createdEntry) => {
         if (createdEntry) {
           console.log('New entry created:', createdEntry);
+
+          // Publish the created entry
+          const entryId = createdEntry.sys.id;
+          const publishEntry = async (entryId) => {
+            try {
+              const publishUrl = `https://api.contentful.com/spaces/fvwgdnm4oux1/environments/master/entries/${entryId}/published`;
+
+              const publishResponse = await axios.put(
+                publishUrl,
+                {},
+                {
+                  headers: {
+                    'Content-Type':
+                      'application/vnd.contentful.management.v1+json',
+                    Authorization: `Bearer CFPAT-8FVJRToLGY4Ot_ur6xxSuO-qnVkDhNBuOekBefmjyqc`,
+                    'X-Contentful-Content-Type': 'cookbook',
+                  },
+                }
+              );
+
+              return publishResponse.data;
+            } catch (error) {
+              console.error('Error publishing entry:', error.message);
+              console.log(error);
+              return null;
+            }
+          };
+
+          // Publish the created entry
+          publishEntry(entryId).then((publishedEntry) => {
+            if (publishedEntry) {
+              console.log('Entry published:', publishedEntry);
+            } else {
+              console.log('Failed to publish entry.');
+            }
+          });
         } else {
           console.log('Failed to create new entry.');
         }

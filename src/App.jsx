@@ -44,6 +44,7 @@ function App() {
   };
 
   const groupedRecipes = groupRecipesByGroup(recipe);
+  console.log("object");
 
   useEffect(() => {
     if (newRecipe) {

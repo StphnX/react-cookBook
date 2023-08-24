@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Contentful from './Contentful';
+// import Contentful from './Contentful';
 
 import Layout from './components/Layout';
 import NotFound from './components/NotFound';
@@ -13,15 +13,15 @@ import Form from './components/Form';
 
 function App() {
   const [recipe, setRecipe] = useState([]);
-  const { getCookbook } = Contentful();
+  // const { getCookbook } = getCookbook();
   const [loading, setLoading] = useState(true);
   const [newRecipe, setNewRecipe] = useState();
 
   useEffect(() => {
-    getCookbook()
+    axios.get("http://localhost:7000/recipes")
       .then((res) => {
         if (res) {
-          setRecipe(res);
+          console.log(res);
         }
         setLoading(false); // Set loading to false once the data is fetched
       })
@@ -50,7 +50,7 @@ function App() {
     if (newRecipe) {
       const createNewEntry = async (newEntryData) => {
         try {
-          const url = `https://api.contentful.com/spaces/fvwgdnm4oux1/environments/master/entries`;
+          const url = `http://localhost:7000/recipe`;
 
           const response = await axios.post(
             url,
@@ -153,8 +153,10 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </div>
+    </div >
   );
+
 }
+
 
 export default App;

@@ -21,7 +21,9 @@ function App() {
     axios.get("http://localhost:7000/recipes")
       .then((res) => {
         if (res) {
-          console.log(res);
+          console.log(res.data);
+          setRecipe(res.data);
+          console.log(recipe);
         }
         setLoading(false); // Set loading to false once the data is fetched
       })
@@ -35,10 +37,10 @@ function App() {
   const groupRecipesByGroup = (recipes) => {
     const groupedRecipes = {};
     recipes.forEach((recipe) => {
-      if (!groupedRecipes[recipe.group]) {
-        groupedRecipes[recipe.group] = [];
+      if (!groupedRecipes[recipe.group_name]) {
+        groupedRecipes[recipe.group_name] = [];
       }
-      groupedRecipes[recipe.group].push(recipe);
+      groupedRecipes[recipe.group_name].push(recipe);
     });
     return groupedRecipes;
   };
@@ -135,7 +137,7 @@ function App() {
           <Route index element={<Home recipe={recipe} loading={loading} />} />
           {recipe.map((groupRecipe) => (
             <Route
-              key={groupRecipe.group}
+              key={groupRecipe.group_name}
               path={`/:group/:name/:recipeId`}
               element={<Recipe recipe={recipe} loading={loading} />}
             />

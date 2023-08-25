@@ -23,7 +23,7 @@ function App() {
         if (res) {
           console.log(res.data);
           setRecipe(res.data);
-          console.log(recipe);
+          // console.log(recipe);
         }
         setLoading(false); // Set loading to false once the data is fetched
       })
@@ -46,7 +46,7 @@ function App() {
   };
 
   const groupedRecipes = groupRecipesByGroup(recipe);
-  console.log("object");
+
 
   useEffect(() => {
     if (newRecipe) {
@@ -135,13 +135,16 @@ function App() {
           element={<Layout recipes={groupedRecipes} loading={loading} />}
         >
           <Route index element={<Home recipe={recipe} loading={loading} />} />
-          {recipe.map((groupRecipe) => (
+          {/* {
+          !recipe ? <p>Loading</p> :
+          recipe.map((groupRecipe) => (
             <Route
               key={groupRecipe.group_name}
               path={`/:group/:name/:recipeId`}
               element={<Recipe recipe={recipe} loading={loading} />}
             />
-          ))}
+          ))
+          } */}
           <Route
             path="add-item"
             element={

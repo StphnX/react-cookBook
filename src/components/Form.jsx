@@ -96,8 +96,8 @@ const Form = ({ recipe, loading, setNewRecipe }) => {
           onChange={HandleChange}
         >
           {recipe.map((option, index) => (
-            <MenuItem key={index} value={option.group}>
-              {option.group}
+            <MenuItem key={index} value={option.group_name}>
+              {option.group_name}
             </MenuItem>
           ))}
         </TextField>
